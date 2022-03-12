@@ -149,7 +149,7 @@ getgenv().rconsolehide = function ()
     MainFrame.Visible = false
 end
 getgenv().rconsolename = function (name)
-    TextLabel = name
+    TextLabel.Text = name
     rconsoleshow()
 end
 
