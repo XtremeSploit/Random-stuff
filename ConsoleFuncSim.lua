@@ -141,7 +141,9 @@ UIListLayout.Parent = ScrollingFrame
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 
 --Functions
-TextLabel.Text = identifyexecutor()
+if identifyexecutor() then
+	TextLabel.Text = identifyexecutor()
+end
 getgenv().rconsoleshow = function ()
     MainFrame.Visible = true
 end
