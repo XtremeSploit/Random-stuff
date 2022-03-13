@@ -143,6 +143,8 @@ UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 --Functions
 if identifyexecutor() then
 	TextLabel.Text = identifyexecutor()
+else
+	TextLabel.Text = "Roblox"
 end
 getgenv().rconsoleshow = function ()
     MainFrame.Visible = true
