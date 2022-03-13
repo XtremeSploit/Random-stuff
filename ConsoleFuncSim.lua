@@ -149,7 +149,8 @@ getgenv().rconsolehide = function ()
     MainFrame.Visible = false
 end
 getgenv().rconsolename = function (name)
-    TextLabel.Text = name
+    local title = game.CoreGui.ConsoleSim.MainFrame.Panel.TextLabel
+	title.Text = name
     rconsoleshow()
 end
 
@@ -183,9 +184,15 @@ getgenv().rconsoleerr = function (Text)
     clonedLine.Text = Text 
     clonedLine.Visible = true
 end
-getgenv().rconsoleinfo = function (text)
-    rconsoleshow()
-    rconsoleprint(text)
+getgenv().rconsoleinfo = function (Text)
+	rconsoleshow()
+    local line = TemplateLine
+    local clonedLine = line:Clone()
+    clonedLine.Name = "Line"
+    clonedLine.Parent = ScrollingFrame
+    clonedLine.TextColor = BrickColor.Blue()
+    clonedLine.Text = Text 
+    clonedLine.Visible = true
 end
 
 getgenv().rconsoleclear = function()
