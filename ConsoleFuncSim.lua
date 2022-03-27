@@ -141,11 +141,7 @@ UIListLayout.Parent = ScrollingFrame
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 
 --Functions
-if identifyexecutor() then
-	TextLabel.Text = identifyexecutor()
-else
-	TextLabel.Text = "Roblox"
-end
+TextLabel.Text = identifyexecutor()
 getgenv().rconsoleshow = function ()
     MainFrame.Visible = true
 end
@@ -158,44 +154,48 @@ getgenv().rconsolename = function (name)
     rconsoleshow()
 end
 
-getgenv().rconsoleprint = function (Text)
+getgenv().rconsoleprint = function (String, String_Color)
     rconsoleshow()
     local line = TemplateLine
     local clonedLine = line:Clone()
     clonedLine.Name = "Line"
     clonedLine.Parent = ScrollingFrame
-    clonedLine.TextColor = BrickColor.White()
-    clonedLine.Text = Text
+	if String_Color == nil then
+		clonedLine.TextColor = BrickColor.White()
+	else
+		clonedLine.TextColor = BrickColor[String_Color]()
+	end
+	clonedLine.Text = String
     clonedLine.Visible = true
 end
-getgenv().rconsolewarn = function (Text)
+getgenv().rconsolewarn = function (String)
     rconsoleshow()
     local line = TemplateLine
     local clonedLine = line:Clone()
     clonedLine.Name = "Line"
     clonedLine.Parent = ScrollingFrame
     clonedLine.TextColor = BrickColor.Yellow()
-    clonedLine.Text = Text 
+    clonedLine.Text = String 
     clonedLine.Visible = true
 end
-getgenv().rconsoleerr = function (Text)
+getgenv().rconsoleerr = function (String)
     rconsoleshow()
     local line = TemplateLine
     local clonedLine = line:Clone()
     clonedLine.Name = "Line"
     clonedLine.Parent = ScrollingFrame
     clonedLine.TextColor = BrickColor.Red()
-    clonedLine.Text = Text 
+    clonedLine.Text = String 
     clonedLine.Visible = true
 end
-getgenv().rconsoleinfo = function (Text)
+getgenv().rconsoleinfo = function (String)
 	rconsoleshow()
     local line = TemplateLine
     local clonedLine = line:Clone()
     clonedLine.Name = "Line"
     clonedLine.Parent = ScrollingFrame
     clonedLine.TextColor = BrickColor.Blue()
-    clonedLine.Text = Text 
+    clonedLine.Text = String 
     clonedLine.Visible = true
 end
 
